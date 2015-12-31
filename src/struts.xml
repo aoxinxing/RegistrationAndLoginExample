@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="user" extends="struts-default">
+
+        <global-results>
+  		  <result name="serviceException">/exception.jsp</result>
+  	    </global-results>
+
+	    <global-exception-mappings>
+	        <exception-mapping exception="ServiceException" result="serviceException" />
+	   	</global-exception-mappings>
+	
+		<action name="login" class="LoginAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="register" class="RegisterAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="userCheck" class="UserCheckAction">
+		</action>
+		<action name="activeAccount" class="ActiveAccountAction">
+			<result name="success">success.jsp</result>
+		</action>
+		<action name="forgotPassword" class="ForgotPasswordAction">
+			<result name="error">error.jsp</result>
+			<result name="success">success.jsp</result>
+		</action>
+		<action name="resetPassword" class="ResetPasswordAction">
+			<result name="success">resetPassword.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="updatePassword" class="UpdatePasswordAction">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+	</package>
+	
+	<package name="ajax_json" extends="json-default">
+		<action name="userCheck" class="UserCheckAction">
+	            <result name="success" type="json"/>
+	    </action>          
+	</package>
+</struts>  
+
+  
