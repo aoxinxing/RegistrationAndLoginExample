@@ -31,7 +31,6 @@ public class SendEmail {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(FROM, PWD);
             }
-
         };
         Session session = Session.getInstance(props , authenticator);
 
